@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>sail</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="css/agency.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        img{ border:0;}
+        body{ font-size:12px;}
+        .Q_pic1,.Q_sign1{background:url(http://demo.lanrenzhijia.com/2014/service1103/images/lanrenzhijia.png) no-repeat;}
+        .sign,.signa,.signb,.signc,.signd,.signe,.signf,.signg,.signh,.signi,.signj,.signq{background:url(http://demo.lanrenzhijia.com/2014/service1103/images/lanrenzhijia.png) no-repeat;display:block;}
+        .signi{background-position:-203px -484px;width: 10px;height: 30px;float:right;margin: 3px 10px 0 3px;}
+        .signj{background-position:-233px -478px;width: 10px;height: 30px;float:right;margin:0 5px 0 3px;}
+        .QQ_S{width:90px;height: 172px;position:fixed;right: 10px;top: 40%; z-index:99999;}
+        .Q_top{width:100%;background:#E6E6E6;height:30px;line-height:30px;text-align: right;cursor:pointer;}
+        .Q_botm{width: 84px;border: 3px solid #E6E6E6;}
+        .Q_pic,.Q_anser,.Q_sign{width:100%;height: 45px;border-bottom:2px solid #E6E6E6;background: url(http://demo.lanrenzhijia.com/2014/service1103/images/lanrenzhijia.png) no-repeat;position:relative;overflow:hidden;color: white;text-align:center;cursor:pointer;background-color:white;}
+        .Q_pic{background-position:20px -458px;}
+        .Q_anser{background-position:-242px -384px;}
+        .Q_sign{background-position:-241px -434px;}
+        .Q_anser_hide,.Q_pic_hide,.Q_sign_hide{width:100%;height:100%;position:absolute;background:#FE9B1D;left: -84px;-webkit-transition:left ease-in-out .3s;-moz-transition:left ease-in-out .3s;transition:left ease-in-out .3s;}
+        .hide_pic,.hide_pic1,.hide_pic2{width:100%;height: 26px;background: url(http://demo.lanrenzhijia.com/2014/service1103/images/lanrenzhijia.png) no-repeat;display:block;}
+        .hide_pic{background-position:-242px -348px;}
+        .hide_pic1{background-position:-100px -467px;}
+        .hide_pic2{background-position:-243px -479px;}
+        .Q_pic:hover .Q_pic_hide,.Q_anser:hover .Q_anser_hide,.Q_sign:hover .Q_sign_hide,.Q_pic1:hover .Q_pic1_hide,.Q_sign1:hover .Q_sign1_hide{left:0px;}
+        .Q_pic a, .Q_anser a,.Q_sign a,.Q_pic a:hover,.Q_anser a:hover,.Q_sign a:hover,.Q_pic1 a,.Q_pic1 a:hover,.Q_sign1 a,.Q_sign1 a:hover{color:white;}
+        a.blank{width:100%;height:100%;display:block;}
+        .QQ_S1{width:60px;height: 110px;position:fixed;right:10px;bottom:0;display:none;}
+        .Q_top1{width:100%;height:30px;background:#E6E6E6;line-height:30px;text-align:right;cursor:pointer;}
+        .Q_botm1{width:56px;border:2px solid #E6E6E6;height: 70px;}
+        .Q_pic1{border-bottom:2px solid #E6E6E6;width:100%;height:33px;background-position:-55px -465px;position:relative;overflow:hidden;color: white;text-align:center;line-height:33px;cursor:pointer;background-color:white;}
+        .Q_sign1{width:100%;height:33px;width:100%;line-height:33px; height: 35px;background-position:-255px -437px;position:relative;overflow:hidden;color: white;text-align:center;cursor:pointer;background-color:white;}
+        .Q_pic1_hide,.Q_sign1_hide{width:100%;height:100%;position:absolute;background:#FE9B1D;left: -56px;-webkit-transition:left ease-in-out .3s;-moz-transition:left ease-in-out .3s;transition:left ease-in-out .3s;cursor:pointer;}
+        .Q_sign1_hide a{font-size:12px;}
+    </style>
+
+</head>
+
+<body id="page-top" class="index">
+
+<!-- 悬浮窗口联系我 -->
+    <div class="QQ_S">
+        <div class="Q_top" onclick="HideFoot()"> <span class="signi"></span>收起</div>
+        <div class="Q_botm">
+            <div class="Q_pic">
+                <div class="Q_pic_hide"> <a href="http://wpa.qq.com/msgrd?v=3&uin=465993779&site=qq&menu=yes" target="_blank" title="联系我" rel="nofollow"><span class="hide_pic"></span>QQ交谈</a> </div>
+            </div>
+            <div class="Q_anser">
+                <div class="Q_anser_hide"> <a href="javascript:void(0)" title="提交有问必答"><span class="hide_pic1"></span>提交有问必答 </a> </div>
+            </div>
+            <div class="Q_sign">
+                <div class="Q_sign_hide" onclick="backToTop();"><a href="javascript:void(0)" title="返回顶部"><span class="hide_pic2"></span>返回顶部 </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="QQ_S1">
+        <div class="Q_top1" onclick="ShowFoot()"> <span class="signj"></span>展开</div>
+        <div class="Q_botm1">
+            <div class="Q_pic1">
+                <div class="Q_pic1_hide"> <a href="http://wpa.qq.com/msgrd?v=3&uin=465993779&site=qq&menu=yes" target="_blank" rel="nofollow"><span class="hide_pic3"></span>QQ交谈</a></div>
+            </div>
+            <div class="Q_sign1">
+                <div class="Q_sign1_hide" onclick="backToTop();"><a href="javascript:void(0)">返回顶部</a></div>
+            </div>
+        </div>
+    </div>
+
+<!-- end -->
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">sail's Website</a>
+            </div>
+
+            <div>
+
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Develop</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Porduct</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About ME</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Influence</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="timeline-image">
+                    <img class="img-circle" src="img/about/5.jpg"  alt="">
+                </div>
+                <br>
+                <div style="font-size: 34px">iOS Developer</div>
+                <br>
+                <div class="intro-lead-in">Welcome To My Personal Website!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Know Me More</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Develop</h2>
+                    <h3 class="section-subheading text-muted">我的开发仓库</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading"><a href="https://github.com/liuyongjiesail" target="_blank">GitHub</a></h4>
+                    <p class="text-muted">学习同道的开源精神,阅读优秀代码的天域,开源me的小小代码</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading"><a href="http://blog.csdn.net/yj_sail" target="_blank">CSDN</a></h4>
+                    <p class="text-muted">记录开发路上的点滴,alloc我的开发仓库</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading"><a href="http://weibo.com/5859324929/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">sina</a></h4>
+                    <p class="text-muted">我在这里寻找和回报</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Product</h2>
+                    <h3 class="section-subheading text-muted">我的移动端作品</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>唠唠叨叨  <a href="https://itunes.apple.com/cn/app/lao-lao-dao-dao/id1111956344?mt=8"  target="_blank" style="font-size: 12px">链接地址</a></h4>
+                        <p class="text-muted">提供旅游线路规划和生活琐事处理</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>必成  <a href=""  target="_blank" style="font-size: 12px">已下架</a></h4>
+                        <p class="text-muted">工程项目进度管理与交流</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>绿茶网  <a href="https://itunes.apple.com/cn/app/lu-cha-yong-hu-ban/id1029737131?mt=8" target="_blank" style="font-size: 12px">链接地址</a></h4>
+                        <p class="text-muted">O2O模式搭建律师与用户咨询平台</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/golden.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>演说部落  <a href=""  target="_blank" style="font-size: 12px">企业自用</a> </h4>
+                        <p class="text-muted">娱乐视频播放平台</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/escape.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>一龄博士  <a href="https://itunes.apple.com/cn/app/yi-ling-bo-shi/id790644899?mt=8" target="_blank" style="font-size: 12px">链接地址</a></h4>
+                        <p class="text-muted">医疗健康咨询与交流平台及医疗器械导购</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/dreams.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>语音机器人   <a href="https://github.com/liuyongjiesail/YJVoiceRobot.git" target="_blank" style="font-size: 12px">链接地址</a></h4>
+                        <p class="text-muted">智能语音识别/翻译(娱乐项目)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About Me</h2>
+                    <h3 class="section-subheading text-muted">冠礼-生活的起点</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2009-2012</h4>
+                                    <h4 class="subheading">山西职业技术学院</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">参与2011年全国大学生电子设计大赛(瑞萨杯) 获得省级二等奖 获奖项目:恒流稳压电源设计(主要编程语言:C语言/汇编)
+                                    ;  2010年以全系第一名的成绩获得2010年教育部下发的全国奖学金8000元</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2012-2014</h4>
+                                    <h4 class="subheading">富士康(太原)精密电子科技有限公司</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">一个刚毕业的大学生作以社招人员被录用为测试部门的电子测试工程师(完全靠个人能力), 经过近一年的努力,担任8人左右的团队组长, 有需求时作为负责人带领近40人完成公司安排的团队任务.工作期间主要涉及硬件电路以及程序编写与烧入,主要还是一些管理团队的任务模式.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2014-2015</h4>
+                                    <h4 class="subheading">北京云台软件科技有限公司</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">作为一名菜鸟iOS开发工程师被录用,鉴于"工作中进步,学习后工作"的原则飞速成长.参与上线项目(一龄博士/绿茶网) 企业内部项目(演说部落). 其中两个项目以团队成员身份开发; 绿茶网属个人独立项目    金子在一个地方发光发亮久了自然就会逊色,由于与公司与自身价值不一致,2015年决然离职另寻'坑'</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2015-2016</h4>
+                                    <h4 class="subheading">北京飞创数据科技有限公司</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">担任iOS开发组组长,别的我不想说...</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Be Part
+                                    <br>Of My
+                                    <br>Life!
+                                </h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Influence</h2>
+                    <h3 class="section-subheading text-muted">对我有影响的人</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>唐巧</h4>
+                        <p class="text-muted">猿题库 iOS Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://github.com/tangqiaoboy" target="_blank" ><i class="fa fa-github"></i></a>
+                            </li>
+                            <li><a href="http://weibo.com/tangqiaoboy?from=profile&wvr=6&is_hot=1"  target="_blank"><i class="fa fa-weibo"></i></a>
+                            </li>
+                            <li><a href="http://blog.devtang.com" target="_blank" ><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>黄仪标</h4>
+                        <p class="text-muted">iOS Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="https://github.com/CoderJackyHuang" target="_blank" ><i class="fa fa-github"></i></a>
+                            </li>
+                            <li><a href="http://weibo.com/huangyibiao520?from=feed&loc=at&nick=标哥的技术博客&is_hot=1" target="_blank"><i class="fa fa-weibo"></i></a>
+                            </li>
+                            <li><a href="http://www.huangyibiao.com" target="_blank" ><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>叶孤城</h4>
+                        <p class="text-muted">iOS Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-github"></i></a>
+                            </li>
+                            <li><a href="http://weibo.com/p/1005051438670852/home?from=page_100505&mod=TAB&is_hot=1#place" target="_blank" ><i class="fa fa-weibo"></i></a>
+                            </li>
+                            <li><a href="http://www.jianshu.com/users/b82d2721ba07/latest_articles" target="_blank" ><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">破——不破不立，近来，总心生慨叹，在日复一日的工作中，我们的思维不可避免地固化了，总该不断地尝试改变才是，虽然，遇到的阻力是有的，否定，也是有的。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--&lt;!&ndash; Clients Aside &ndash;&gt;-->
+    <!--<aside class="clients">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-md-3 col-sm-6">-->
+                    <!--<a href="#">-->
+                        <!--<img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</aside>-->
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact ME</h2>
+                    <h3 class="section-subheading text-muted">发建议给我</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; 2016 sailip.com | 晋ICP备16007405号 </span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://github.com/liuyongjiesail" target="_blank"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li><a href="http://weibo.com/5859324929/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>唠唠叨叨</h2>
+                                <p class="item-intro text-muted">提供旅游线路规划和生活琐事处理</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
+                                <p><strong>项目描述：</strong>唠唠叨叨是借助旅游的平台来打造的一款功能独特并提供全方位服务为一体的生活服务类APP。支持两种类型用户的注册：需方和帮客； 需方发布自己的求助信息，帮客可通过提供详细的解决方案来赚取需方支付的佣金。
+                                </p>
+                                <p style="text-align: left"><strong>功能模块：</strong>
+                                    <br>
+                                    1）出行求助及生活求助：需要帮助的用户可在这里发布自己的需求，支持多张图片、语音的发布和展示；提供服务的帮客可通过抢单提供自己的简单文字方案和行程的详细设计（包含地图景点搜索和线路的规划展示、各景点介绍语音包一并提供给需求方）；需求方可自由选择适合自己的行程，佣金支付方式提供了支付宝支付、银联支付、余额支付、叨乐币支付（App内部名称）
+                                    <br>
+                                    2）论坛：与QQ空间动态类似的布局和功能实现，支持多张图片发布等；动态展示界面支持点赞、评论、举报、分享功能
+                                    <br>
+                                    3）消息：出行求助、生活求助、好友消息的推送服务，支持好友单聊IM
+                                    <br>
+                                    4）个人中心：登录、注册、个人信息、个人设置、订单管理、与我相关、我的钱包等功能</p>
+                                <p style="text-align: left"><strong>项目职责：</strong>
+                                    <br>
+                                    唠唠叨叨产品开发框架结构的搭建。
+                                    <br>
+                                    1）求助：图片发布封装、语音录制与播放类封装，页面的逻辑跳转和少许页面的搭建，支付宝支付、银联集成并封装，百度地图SDK的集成以及功能的导入
+                                    <br>
+                                    2）论坛：整体页面的搭建；发帖、列表、评论列表的界面搭建和数据请求；封装点赞、评论、举报
+                                    <br>
+                                    3）消息：推送服务的集成（JPush）及与后台的逻辑对接跳转
+                                    <br>
+                                    4）个人中心：少许界面搭建，注册登录的用户信息管理类的封装等等，此模块所有的功能实现。
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>必成</h2>
+                                <p class="item-intro text-muted">工程项目进度管理与交流</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.png" alt="">
+                                <p style="text-align: left"><strong>项目描述：</strong>必成是一款以让天下没有难谈的生意为理念的智能化即时通讯APP。让客户在简洁、有序、目标明确地的方式下实现跨国、跨语言、跨文化的商务沟通。</p>
+                                <p style="text-align: left"><strong>功能描述：</strong>
+                                    <br>
+                                    1) 项目：根据需要选择商务标签实现商务沟通
+                                    <br>
+                                    2) 报表：用报表的形式展示项目的进展，使客户实时掌握项目进度
+                                    <br>
+                                    3) 个人：个人信息和APP设置
+                                </p>
+                                <p style="text-align: left"><strong>项目职责：</strong>
+                                    <br>
+                                    1) 软件启动引导页面，注册页面， 登录页面，注册后创建项目，个人等这些界面UI的开发和逻辑处理
+                                    <br>
+                                    2) 使用XMPP实现即时通讯
+                                </p>
+                                <p style="text-align: left">
+                                    <strong>技术要点：</strong><br>
+                                    1) 使用XMPP实现添加好友和聊天
+                                    <br>
+                                    2) 自定义聊天界面
+                                    <br>
+                                    3) 使用百度翻译和人工翻译，保障沟通的顺畅和便捷
+                                    <br>
+                                    4) 使用Mantle来完成与服务器的数据交互
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>绿茶网</h2>
+                                <p class="item-intro text-muted">O2O模式搭建律师与用户咨询平台(分为用户端和律师端)</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
+                                <p style="text-align: left"><strong>项目描述：</strong>绿茶网以“科技引领法律，法律服务生活”，为经营理念，打造以中国顶级服务品牌“为发展目标，主要分为用户端和律师端两个部分，IM聊天，形成O2O模式的法律服务平台；为用户和律师搭建一个法律咨询和案件委托的平台。
+                                </p>
+                                <p style="text-align: left"><strong>项目要点：</strong><br>
+                                    1）使用自己封装的类管理用户信息上传服务器、修改和本地存储
+                                    <br>
+                                    2）使用AFNetWorking类库自己封装完成网络监控和数据的请求、上传
+                                    <br>
+                                    3）使用MMDrawerController作为项目的抽屉式用户管理界面
+                                    <br>
+                                    4）MagicalRecord实现对缓存的存储
+                                    <br>
+                                    5）CocoaLumberjack实现日志的管理
+                                    <br>
+                                    6）iPad版本与iPhone版本只是布局和方法的差异，用户数据管理同步
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>演说部落</h2>
+                                <p class="item-intro text-muted">娱乐视频播放平台</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
+                                <p style="text-align: left"><strong>项目描述：</strong>这是一款专注于视频方面的App,有企业演说、明星演说、精彩演说和论坛四大项目，特色项目具有演说币等功能，同时注册会员之间可以互相关注，传送消息等功能。
+                                </p>
+                                <p style="text-align: left"><strong>项目职责：</strong><br>
+                                    1）话题、演说厅界面的搭建和逻辑判断
+                                    <br>
+                                    2）视频播放的封装
+                                    <br>
+                                    3）用户登录、注册界面的搭建及接口逻辑处理
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>一龄博士</h2>
+                                <p class="item-intro text-muted">医疗健康咨询与交流平台及医疗器械导购</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/escape-preview.png" alt="">
+                                <p style="text-align: left"><strong>项目描述</strong>：一龄博士是专注于美丽定制的App，有美丽定制、健康管理、我的服务、个人信息四大模块，专业于奢侈的私人定制，享受专业的美丽定制！
+                                </p>
+                                <p style="text-align: left"><strong>项目要点：</strong><br>
+                                    1）使用XMPP实现即时通信
+                                    <br>
+                                    2）使用UUChart框架作为用户的聊天界面
+                                    <br>
+                                    3）Harpy实现版本更新的检查
+                                    <br>
+                                    4）使用AFNetWorking类库自己封装完成网络监控和数据的请求、上传
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>语音机器人</h2>
+                                <p class="item-intro text-muted">智能语音识别/翻译</p>
+                                <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
+                                <p style="text-align: left"><strong>项目描述</strong>：在使用手机的时候，打字输入来获取信息的方式不方便，我们这款语音机器人就是一坨语音识别技术，让用户体验使用语音来完成功能的乐趣
+                                </p>
+                                <p style="text-align: left"><strong>项目要点：</strong><br>
+                                    1）语音计算器，使用科大讯飞的语音接口识别用户说的计算式，返回计算结果
+                                    <br>
+                                    2）语音翻译，可以识别英语和汉语，通过百度翻译翻译成27国语言文字
+                                    <br>
+                                    3）科大讯飞SDK识别语音转换成文字
+                                    <br>
+                                    4）百度翻译api将文字翻译成各国语音
+                                    <br>
+                                    5）使用正则表达式提取数字和运算符
+                                </p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/agency.min.js"></script>
+    <!--悬浮窗口-->
+    <script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+    <script src="js/lanrenzhijia.js"></script>
+
+</body>
+
+</html>
