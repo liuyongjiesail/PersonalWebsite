@@ -310,7 +310,7 @@ section h3.section-subheading {
 #portfolio .portfolio-item .portfolio-link {
   display: block;
   position: relative;
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
 }
 #portfolio .portfolio-item .portfolio-link .portfolio-hover {
@@ -344,7 +344,7 @@ section h3.section-subheading {
   margin: 0;
 }
 #portfolio .portfolio-item .portfolio-caption {
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
   background-color: white;
   text-align: center;
@@ -356,7 +356,7 @@ section h3.section-subheading {
 }
 #portfolio .portfolio-item .portfolio-caption p {
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
+  font-style: normal;
   font-size: 16px;
   margin: 0;
 }
@@ -679,7 +679,7 @@ ul.social-buttons li a:active {
 .portfolio-modal .modal-content p.item-intro {
   margin: 20px 0 30px;
   font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
+  font-style: normal;
   font-size: 16px;
 }
 .portfolio-modal .modal-content ul.list-inline {
